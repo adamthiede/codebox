@@ -6,4 +6,5 @@ RUN apt-get -qq update && \
     wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg  && \
     install -D -o root -g root -m 644 microsoft.gpg /usr/share/keyrings/microsoft.gpg && \
     rm -f microsoft.gpg && \
-    apt-get -qq update && apt-get -qq -y install code
+    apt-get -qq update && apt-get -qq -y install code && \
+    apt-get autoclean && rm -rf /var/cache/apt
